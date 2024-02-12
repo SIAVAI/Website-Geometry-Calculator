@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-lime-300">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo Genius</title>
+
+    <!-- Daisy Ui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.3/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+
+</head>
+<body class="m-8">
+
+    <header>
+        <div class="bg-cyan-300 m-5 rounded-md">
+            <h2 class="text-center text-red-50 text-6xl font-bold p-4">Interactive </h2>
+            <p class="text-center text-red-50 text-4xl p-4">Geometry Genius</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="flex flex-col md:flex-row">
+
+            <!-- Shape Card Container -->
+            <div class="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Triangle -->
+                <div class="card w-85 bg-base-100 shadow-xl ease-in duration-300 hover:-translate-y-6 hover:bg-red-300">
+                    <figure class="pt-5"><img src="images/triangle.png" alt="Triangle" /></figure>
+                    <div class="card-body flex flex-col justify-center items-center">
+                      <h2 class="card-title">Triangle</h2>
+                      <p>Area (A) = 0.5 x b x h</p>
+
+                      <div id="tarea">
+                        <input id="tbase" type="text" name="" id="" placeholder="b" class="w-24 text-2xl p-2 rounded-sm text-center">
+                        <span class="mr-2 ml-2">cm</span>
+                        <input id="theight" type="text" name="" id="" placeholder="h" class="w-24 text-2xl p-2 rounded-sm text-center">
+                        <span class="mr-2 ml-2">cm</span>
+                      </div>
+
+                      <div class="card-actions">
+                        <button onclick="calcTriArea()" class="btn btn-primary w-full active:bg-white active:text-red-600">Calculate</button>
+                      </div>
+                    </div>
+                  </div>
+                <!-- Rectangle -->
+                <div class="card w-85 bg-base-100 shadow-xl ease-in duration-300 hover:-translate-y-6 hover:bg-orange-300">
+                    <figure class="pt-5"><img src="images/rectangle.png" alt="Rectangle" /></figure>
+                    <div class="card-body flex flex-col justify-center items-center">
+                      <h2 class="card-title">Rectangle</h2>
+                      <p>Area (A) = w x I</p>
+
+                      <div id="rarea">
+                        <input id="rwidth" type="text" name="" id="" placeholder="w" class="w-24 text-2xl p-2 rounded-sm text-center">
+                        <span class="mr-2 ml-2">cm</span>
+                        <input id="rlength" type="text" name="" id="" placeholder="l" class="w-24 text-2xl p-2 rounded-sm text-center">
+                        <span class="mr-2 ml-2">cm</span>
+                      </div>
+
+                      <div class="card-actions">
+                        <button onclick="calcRecArea()" class="btn btn-primary w-full active:bg-white active:text-red-600">Calculate</button>
+                      </div>
+                    </div>
+                  </div>
+                <!-- Parallelogram -->
+                <div class="card w-85 bg-base-100 shadow-xl ease-in duration-300 hover:-translate-y-6 hover:bg-amber-400">
+                    <figure class="pt-5"><img src="images/parallelogram.png" alt="Parallelogram" /></figure>
+                    <div class="card-body flex flex-col justify-center items-center">
+                      <h2 class="card-title">Parallelogram</h2>
+                      <p>Area (A) = b x h</p>
+
+                      <div id="pallarea">
+                        <input id="pallbase" type="text" name="" id="" placeholder="b" class="w-24 text-2xl p-2 rounded-sm text-center">
+                        <span class="mr-2 ml-2">cm</span>
+                        <input id="pallheight" type="text" name="" id="" placeholder="h" class="w-24 text-2xl p-2 rounded-sm text-center">
+                        <span class="mr-2 ml-2">cm</span>
+                      </div>
+
+                      <div class="card-actions">
+                        <button onclick="calcPallArea()" class="btn btn-primary w-full active:bg-white active:text-red-600">Calculate</button>
+                      </div>
+                    </div>
+                  </div>
+                <!-- Rhombus -->
+                <div class="card w-85 bg-base-100 shadow-xl ease-in duration-300 hover:-translate-y-6 hover:bg-lime-400">
+                    <figure class="pt-5"><img src="images/rhombus.png" alt="Rhombus" /></figure>
+                    <div class="card-body flex flex-col justify-center items-center">
+                      <h2 class="card-title">Rhombus</h2>
+                      <p>Area (A) = d1 x d x 0.5 x 2</p>
+
+                      <div id="rharea">
+                        <input id="rhd1" type="text" name="" id="" placeholder="d1" class="w-24 text-2xl p-2 rounded-sm text-center">
+                        <span class="mr-2 ml-2">cm</span>
+                        <input id="rhd" type="text" name="" id="" placeholder="d" class="w-24 text-2xl p-2 rounded-sm text-center">
+                        <span class="mr-2 ml-2">cm</span>
+                      </div>
+
+                      <div class="card-actions">
+                        <button onclick="calcRhArea()" class="btn btn-primary w-full active:bg-white active:text-red-600">Calculate</button>
+                      </div>
+                    </div>
+                  </div>
+                <!-- Pentagon -->
+                <div class="card w-85 bg-base-100 shadow-xl ease-in duration-300 hover:-translate-y-6 hover:bg-gray-500">
+                    <figure class="pt-5"><img src="images/pentagon.png" alt="Pentagon" /></figure>
+                    <div class="card-body flex flex-col justify-center items-center">
+                      <h2 class="card-title">Pentagon</h2>
+                      <p>Area (A) = 0.5 x p x b</p>
+
+                      <div id="penarea">
+                        <input id="penp" type="text" name="" id="" placeholder="p" class="w-24 text-2xl p-2 rounded-sm text-center">
+                        <span class="mr-2 ml-2">cm</span>
+                        <input id="penb" type="text" name="" id="" placeholder="b" class="w-24 text-2xl p-2 rounded-sm text-center">
+                        <span class="mr-2 ml-2">cm</span>
+                      </div>
+                      <div class="card-actions">
+                        <button onclick="calcPenArea()" class="btn btn-primary w-full active:bg-white active:text-red-600">Calculate</button>
+                      </div>
+                    </div>
+                  </div>
+                <!-- Ellipse -->
+                <div class="card w-85 bg-base-100 shadow-xl ease-in duration-300 hover:-translate-y-6 hover:bg-amber-700">
+                    <figure class="pt-5"><img src="images/ellipse.png" alt="Ellipse" /></figure>
+                    <div class="card-body flex flex-col justify-center items-center">
+                      <h2 class="card-title">Ellipse</h2>
+                      <p>Area (A) = Pi x a x b</p>
+
+                      <div id="ellarea">
+                        <input id="ella" type="text" name="" id="" placeholder="a" class="w-24 text-2xl p-2 rounded-sm text-center">
+                        <span class="mr-2 ml-2">cm</span>
+                        <input id="ellb" type="text" name="" id="" placeholder="b" class="w-24 text-2xl p-2 rounded-sm text-center">
+                        <span class="mr-2 ml-2">cm</span>
+                      </div>
+
+                      <div class="card-actions">
+                        <button onclick="calcEllArea()" class="btn btn-primary w-full active:bg-white active:text-red-600">Calculate</button>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+
+            <!-- Area Calculation -->
+            <div class="w-90  border-2 border-gray-700 rounded-md">
+                <h3 class="text-3xl text-center p-4">Area Calculation</h3>
+            </div>
+
+        </div>
+    </main>
+    <script src="script.js"></script>
+    
+</body>
+</html>
